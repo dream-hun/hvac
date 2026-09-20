@@ -39,7 +39,7 @@ export default function PublicMobileNavigation({
             <SheetTrigger asChild>
                 <button
                     type="button"
-                    className="grid size-11 shrink-0 place-items-center rounded-full border border-current/40 lg:hidden"
+                    className="border-ink/25 hover:bg-ink/5 grid size-11 shrink-0 place-items-center rounded-full border transition-colors lg:hidden"
                     aria-label="Open navigation"
                 >
                     <Menu size={19} />
@@ -47,9 +47,9 @@ export default function PublicMobileNavigation({
             </SheetTrigger>
             <SheetContent
                 data-lenis-prevent
-                className="public-menu w-full overflow-y-auto border-white/15 bg-[#122c23] px-6 pt-8 pb-10 text-[#f7f7f0] motion-reduce:animate-none motion-reduce:transition-none sm:max-w-lg [&>button]:top-5 [&>button]:right-5 [&>button]:grid [&>button]:size-11 [&>button]:place-items-center"
+                className="public-menu bg-brand-navy-950 w-full overflow-y-auto border-white/15 px-6 pt-8 pb-10 text-white motion-reduce:animate-none motion-reduce:transition-none sm:max-w-lg [&>button]:top-5 [&>button]:right-5 [&>button]:grid [&>button]:size-11 [&>button]:place-items-center"
             >
-                <SheetTitle className="pr-14 text-xs tracking-[.16em] text-[#d5e6b9] uppercase">
+                <SheetTitle className="text-brand-green-300 pr-14 text-xs tracking-[.16em] uppercase">
                     Explore the Society
                 </SheetTitle>
                 <nav
@@ -61,17 +61,17 @@ export default function PublicMobileNavigation({
                             key={label}
                             href={route()}
                             onClick={() => onOpenChange(false)}
-                            className="group flex items-center gap-4 border-b border-white/20 py-5 font-serif text-[clamp(1.8rem,7vw,3rem)] tracking-tight"
+                            className="group hover:text-brand-green-300 flex items-center gap-4 border-b border-white/20 py-5 font-serif text-[clamp(1.8rem,7vw,3rem)] tracking-tight transition-colors"
                         >
-                            <span className="font-sans text-xs tracking-normal text-[#c9dda8]">
+                            <span className="text-brand-green-300 font-sans text-xs tracking-normal">
                                 0{index + 1}
                             </span>
                             {label}
-                            <ArrowUpRight className="ml-auto size-5 text-[#c9dda8]" />
+                            <ArrowUpRight className="text-brand-green-300 ml-auto size-5" />
                         </Link>
                     ))}
                 </nav>
-                <SheetDescription className="max-w-xs text-sm leading-6 text-white/65">
+                <SheetDescription className="max-w-xs text-sm leading-6 text-white/70">
                     A professional home for Rwanda’s cooling and ventilation
                     sector.
                 </SheetDescription>

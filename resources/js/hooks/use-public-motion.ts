@@ -23,7 +23,7 @@ export function usePublicMotion(
             '(prefers-reduced-motion: no-preference)',
             () => {
                 const lenis = new Lenis({
-                    lerp: 0.09,
+                    lerp: 0.12,
                     smoothWheel: true,
                     anchors: true,
                 });
@@ -32,17 +32,20 @@ export function usePublicMotion(
                 lenis.on('scroll', () => ScrollTrigger.update());
                 gsap.ticker.add(tick);
 
-                gsap.from(
-                    variant === 'home'
-                        ? '.hero-reveal'
-                        : '.public-hero-copy > *',
+                /*
+                 * The hero is hidden by CSS until this runs, so it animates to an
+                 * explicit end state rather than clearing back to the stylesheet.
+                 */
+                gsap.fromTo(
+                    gsap.utils.toArray<HTMLElement>('.hero-reveal', root),
+                    { autoAlpha: 0, y: 20 },
                     {
-                        autoAlpha: 0,
-                        y: 24,
-                        duration: 0.85,
-                        stagger: 0.09,
-                        ease: 'power3.out',
-                        clearProps: 'transform,opacity,visibility',
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.8,
+                        stagger: 0.08,
+                        ease: 'power2.out',
+                        clearProps: 'transform',
                     },
                 );
 
@@ -63,13 +66,13 @@ export function usePublicMotion(
                     .forEach((element) => {
                         gsap.from(element, {
                             opacity: 0,
-                            y: 56,
-                            duration: 1,
-                            ease: 'power3.out',
+                            y: 40,
+                            duration: 0.8,
+                            ease: 'power2.out',
                             clearProps: 'transform,opacity,visibility',
                             scrollTrigger: {
                                 trigger: element,
-                                start: 'clamp(top 82%)',
+                                start: 'clamp(top 88%)',
                                 once: true,
                             },
                         });
@@ -80,18 +83,24 @@ export function usePublicMotion(
                 ).forEach((group) => {
                     gsap.from(group.children, {
                         opacity: 0,
-                        y: 64,
-                        duration: 0.9,
-                        stagger: 0.14,
-                        ease: 'power3.out',
+                        y: 44,
+                        duration: 0.75,
+                        stagger: 0.1,
+                        ease: 'power2.out',
                         clearProps: 'transform,opacity,visibility',
                         scrollTrigger: {
                             trigger: group,
-                            start: 'clamp(top 82%)',
+                            start: 'clamp(top 88%)',
                             once: true,
                         },
                     });
                 });
+
+                /*
+                 * A shallow tilt that resolves well before the element reaches the
+                 * middle of the viewport — enough to read as depth, not enough to
+                 * leave text skewed while someone is trying to read it.
+                 */
                 root.querySelectorAll<HTMLElement>('[data-scroll-3d]').forEach(
                     (scene) => {
                         const kind = scene.getAttribute('data-scroll-3d');
@@ -102,39 +111,36 @@ export function usePublicMotion(
 
                         elements.forEach((element, index) => {
                             const intensity = (): number =>
-                                window.innerWidth < 768 ? 0.45 : 1;
+                                window.innerWidth < 768 ? 0.4 : 1;
                             gsap.fromTo(
                                 element,
                                 {
-                                    transformPerspective: 1200,
-                                    transformOrigin: '50% 80%',
+                                    transformPerspective: 1400,
+                                    transformOrigin: '50% 100%',
                                     rotationX: () =>
-                                        (kind === 'image' ? 8 : 22) *
+                                        (kind === 'image' ? 5 : 9) *
                                         intensity(),
                                     rotationY: () =>
-                                        (kind === 'image'
-                                            ? -12
-                                            : kind === 'cards'
-                                              ? index % 2 === 0
-                                                  ? -8
-                                                  : 8
-                                              : 0) * intensity(),
-                                    z: () => -120 * intensity(),
-                                    y: () => 55 * intensity(),
-                                    scale: 0.96,
+                                        (kind === 'cards'
+                                            ? index % 2 === 0
+                                                ? -3
+                                                : 3
+                                            : 0) * intensity(),
+                                    y: () => 34 * intensity(),
+                                    scale: 0.985,
                                 },
                                 {
                                     rotationX: 0,
                                     rotationY: 0,
-                                    z: 0,
                                     y: 0,
                                     scale: 1,
                                     ease: 'none',
+                                    clearProps: 'transform',
                                     scrollTrigger: {
                                         trigger: element,
-                                        start: 'clamp(top 95%)',
-                                        end: 'clamp(top 48%)',
-                                        scrub: 0.65,
+                                        start: 'clamp(top 92%)',
+                                        end: 'clamp(top 62%)',
+                                        scrub: 0.5,
                                         invalidateOnRefresh: true,
                                     },
                                 },
@@ -143,31 +149,13 @@ export function usePublicMotion(
                     },
                 );
                 root.querySelectorAll<HTMLElement>(
-                    '.section-background-motion',
-                ).forEach((background) => {
-                    gsap.fromTo(
-                        background,
-                        { yPercent: -7 },
-                        {
-                            yPercent: 7,
-                            ease: 'none',
-                            scrollTrigger: {
-                                trigger: background.closest('section'),
-                                start: 'top bottom',
-                                end: 'bottom top',
-                                scrub: 0.8,
-                            },
-                        },
-                    );
-                });
-                root.querySelectorAll<HTMLElement>(
                     '[data-scroll-image]',
                 ).forEach((image) => {
                     gsap.fromTo(
                         image,
-                        { yPercent: -6, scale: 1.14 },
+                        { yPercent: -5, scale: 1.12 },
                         {
-                            yPercent: 6,
+                            yPercent: 5,
                             ease: 'none',
                             scrollTrigger: {
                                 trigger: image.parentElement,
@@ -181,7 +169,7 @@ export function usePublicMotion(
                 if (variant === 'home') {
                     gsap.to('.hero-orbit', {
                         rotation: 360,
-                        duration: 60,
+                        duration: 90,
                         repeat: -1,
                         ease: 'none',
                         transformOrigin: '50% 50%',

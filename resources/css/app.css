@@ -6,66 +6,82 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Brand palette — every ramp is generated in OKLCH from a logo colour, which
+ * keeps its exact hex on the anchor step noted in each comment.
+ *
+ * Blue  #0F4290  RSHVACR wordmark, cooling / snowflake
+ * Green #306D47  Leaf outline and subtitle
+ * Red   #CE363C  Sun / heat symbol and the rule under the wordmark
+ * Navy  #20305C  Darker blue portions and the deep surfaces built from them
+ */
 @theme {
-    --color-dark-emerald-50: oklch(96.85% 0.015 164.73);
-    --color-dark-emerald-100: oklch(93.79% 0.029 163.21);
-    --color-dark-emerald-200: oklch(87.81% 0.061 161.15);
-    --color-dark-emerald-300: oklch(81.86% 0.09 160.19);
-    --color-dark-emerald-400: oklch(76.32% 0.118 158.62);
-    --color-dark-emerald-500: oklch(70.92% 0.141 156.5);
-    --color-dark-emerald-600: oklch(60.31% 0.119 156.53);
-    --color-dark-emerald-700: oklch(48.97% 0.094 156.7);
-    --color-dark-emerald-800: oklch(37.19% 0.069 156.78);
-    --color-dark-emerald-900: oklch(24.14% 0.038 159.01);
-    --color-dark-emerald-950: oklch(19.95% 0.029 159.04);
-    --color-cobalt-blue-50: oklch(95.29% 0.019 260.17);
-    --color-cobalt-blue-100: oklch(90.55% 0.038 259.29);
-    --color-cobalt-blue-200: oklch(81.32% 0.08 257.91);
-    --color-cobalt-blue-300: oklch(72.1% 0.122 258.28);
-    --color-cobalt-blue-400: oklch(63.33% 0.167 258.54);
-    --color-cobalt-blue-500: oklch(55.67% 0.204 259.5);
-    --color-cobalt-blue-600: oklch(47.34% 0.172 259.54);
-    --color-cobalt-blue-700: oklch(38.79% 0.135 259.27);
-    --color-cobalt-blue-800: oklch(29.83% 0.098 258.75);
-    --color-cobalt-blue-900: oklch(19.83% 0.055 258.24);
-    --color-cobalt-blue-950: oklch(16.73% 0.041 254.37);
-    --color-mint-cream-50: oklch(97.46% 0.031 137.82);
-    --color-mint-cream-100: oklch(95.21% 0.063 138.08);
-    --color-mint-cream-200: oklch(90.91% 0.125 137.9);
-    --color-mint-cream-300: oklch(87.06% 0.182 138.37);
-    --color-mint-cream-400: oklch(83.79% 0.228 139.06);
-    --color-mint-cream-500: oklch(81.15% 0.256 140.18);
-    --color-mint-cream-600: oklch(68.72% 0.215 140.08);
-    --color-mint-cream-700: oklch(55.71% 0.172 139.91);
-    --color-mint-cream-800: oklch(41.88% 0.126 139.6);
-    --color-mint-cream-900: oklch(26.75% 0.076 139.03);
-    --color-mint-cream-950: oklch(21.81% 0.057 138.1);
-    --color-lobster-pink-50: oklch(94.78% 0.023 17.56);
-    --color-lobster-pink-100: oklch(89.49% 0.049 14.94);
-    --color-lobster-pink-200: oklch(79.56% 0.1 17.99);
-    --color-lobster-pink-300: oklch(70.62% 0.157 19.99);
-    --color-lobster-pink-400: oklch(63.6% 0.206 23.5);
-    --color-lobster-pink-500: oklch(59.29% 0.234 27.57);
-    --color-lobster-pink-600: oklch(50.35% 0.198 27.34);
-    --color-lobster-pink-700: oklch(40.86% 0.158 27.06);
-    --color-lobster-pink-800: oklch(30.82% 0.115 26.54);
-    --color-lobster-pink-900: oklch(20.03% 0.07 23.23);
-    --color-lobster-pink-950: oklch(16.51% 0.055 22.73);
-    --color-powder-blue-50: oklch(96.03% 0.01 238.51);
-    --color-powder-blue-100: oklch(92.12% 0.019 240.74);
-    --color-powder-blue-200: oklch(83.92% 0.042 243.79);
-    --color-powder-blue-300: oklch(75.91% 0.062 243.45);
-    --color-powder-blue-400: oklch(67.9% 0.085 243.98);
-    --color-powder-blue-500: oklch(59.77% 0.106 245.94);
-    --color-powder-blue-600: oklch(51.1% 0.089 245.29);
-    --color-powder-blue-700: oklch(41.78% 0.07 245.32);
-    --color-powder-blue-800: oklch(31.92% 0.051 245.84);
-    --color-powder-blue-900: oklch(21.53% 0.027 242.62);
-    --color-powder-blue-950: oklch(18.07% 0.021 239.84);
+    --color-brand-blue-50: oklch(0.972 0.0159 259.49);
+    --color-brand-blue-100: oklch(0.938 0.03 259.49);
+    --color-brand-blue-200: oklch(0.886 0.0583 259.49);
+    --color-brand-blue-300: oklch(0.812 0.0884 259.49);
+    --color-brand-blue-400: oklch(0.726 0.1237 259.49);
+    --color-brand-blue-500: oklch(0.637 0.159 259.49);
+    --color-brand-blue-600: oklch(0.552 0.1767 259.49);
+    --color-brand-blue-700: oklch(0.468 0.1661 259.49);
+    --color-brand-blue-800: oklch(0.397 0.1396 259.49); /* #0F4290 */
+    --color-brand-blue-900: oklch(0.318 0.1131 259.49);
+    --color-brand-blue-950: oklch(0.235 0.0813 259.49);
+
+    --color-brand-green-50: oklch(0.972 0.0085 154.01);
+    --color-brand-green-100: oklch(0.938 0.016 154.01);
+    --color-brand-green-200: oklch(0.886 0.0311 154.01);
+    --color-brand-green-300: oklch(0.812 0.0471 154.01);
+    --color-brand-green-400: oklch(0.726 0.066 154.01);
+    --color-brand-green-500: oklch(0.637 0.0848 154.01);
+    --color-brand-green-600: oklch(0.552 0.0942 154.01);
+    --color-brand-green-700: oklch(0.483 0.0886 154.01); /* #306D47 */
+    --color-brand-green-800: oklch(0.39 0.0744 154.01);
+    --color-brand-green-900: oklch(0.318 0.0603 154.01);
+    --color-brand-green-950: oklch(0.235 0.0433 154.01);
+
+    --color-brand-red-50: oklch(0.972 0.017 23.67);
+    --color-brand-red-100: oklch(0.938 0.032 23.67);
+    --color-brand-red-200: oklch(0.886 0.0622 23.67);
+    --color-brand-red-300: oklch(0.812 0.0942 23.67);
+    --color-brand-red-400: oklch(0.726 0.1319 23.67);
+    --color-brand-red-500: oklch(0.637 0.1696 23.67);
+    --color-brand-red-600: oklch(0.567 0.1884 23.67); /* #CE363C */
+    --color-brand-red-700: oklch(0.468 0.1771 23.67);
+    --color-brand-red-800: oklch(0.39 0.1489 23.67);
+    --color-brand-red-900: oklch(0.318 0.1206 23.67);
+    --color-brand-red-950: oklch(0.235 0.0867 23.67);
+
+    --color-brand-navy-50: oklch(0.972 0.0114 266.79);
+    --color-brand-navy-100: oklch(0.938 0.0216 266.79);
+    --color-brand-navy-200: oklch(0.886 0.0418 266.79);
+    --color-brand-navy-300: oklch(0.812 0.0634 266.79);
+    --color-brand-navy-400: oklch(0.726 0.0888 266.79);
+    --color-brand-navy-500: oklch(0.637 0.1141 266.79);
+    --color-brand-navy-600: oklch(0.552 0.1268 266.79);
+    --color-brand-navy-700: oklch(0.468 0.1192 266.79);
+    --color-brand-navy-800: oklch(0.39 0.1002 266.79);
+    --color-brand-navy-900: oklch(0.32 0.0811 266.79); /* #20305C */
+    --color-brand-navy-950: oklch(0.235 0.0583 266.79);
+
+    /* Public-site surfaces and text, named by role rather than by hue. */
+    --color-canvas: oklch(0.985 0.005 266.79);
+    --color-canvas-sunken: oklch(0.958 0.01 266.79);
+    --color-ink: var(--color-brand-navy-900);
+    --color-ink-muted: oklch(0.52 0.03 266.79);
+
+    /* Resting and hover elevation for the public site's white cards. */
+    --shadow-card: 0 1px 0
+        color-mix(in oklab, var(--color-brand-navy-900) 6%, transparent);
+    --shadow-card-hover: 0 12px 30px
+        color-mix(in oklab, var(--color-brand-navy-900) 12%, transparent);
+
     --font-sans:
         'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
+    --font-serif: 'Instrument Serif', ui-serif, Georgia, Cambria, serif;
+
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
@@ -105,72 +121,72 @@
 
 :root {
     --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    --foreground: var(--color-brand-navy-900);
     --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
+    --card-foreground: var(--color-brand-navy-900);
     --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --destructive-foreground: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.87 0 0);
-    --chart-1: oklch(0.646 0.222 41.116);
-    --chart-2: oklch(0.6 0.118 184.704);
-    --chart-3: oklch(0.398 0.07 227.392);
-    --chart-4: oklch(0.828 0.189 84.429);
-    --chart-5: oklch(0.769 0.188 70.08);
+    --popover-foreground: var(--color-brand-navy-900);
+    --primary: var(--color-brand-blue-800);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: var(--color-brand-navy-50);
+    --secondary-foreground: var(--color-brand-navy-900);
+    --muted: var(--color-brand-navy-50);
+    --muted-foreground: var(--color-ink-muted);
+    --accent: var(--color-brand-blue-50);
+    --accent-foreground: var(--color-brand-blue-800);
+    --destructive: var(--color-brand-red-600);
+    --destructive-foreground: var(--color-brand-red-700);
+    --border: var(--color-brand-navy-200);
+    --input: var(--color-brand-navy-200);
+    --ring: var(--color-brand-blue-600);
+    --chart-1: var(--color-brand-blue-600);
+    --chart-2: var(--color-brand-green-600);
+    --chart-3: var(--color-brand-red-600);
+    --chart-4: var(--color-brand-navy-500);
+    --chart-5: var(--color-brand-blue-300);
     --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.87 0 0);
+    --sidebar: var(--color-brand-navy-50);
+    --sidebar-foreground: var(--color-brand-navy-900);
+    --sidebar-primary: var(--color-brand-blue-800);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: var(--color-brand-blue-100);
+    --sidebar-accent-foreground: var(--color-brand-blue-800);
+    --sidebar-border: var(--color-brand-navy-200);
+    --sidebar-ring: var(--color-brand-blue-600);
 }
 .dark {
-    --background: oklch(0.145 0 0);
+    --background: var(--color-brand-navy-950);
     --foreground: oklch(0.985 0 0);
-    --card: oklch(0.145 0 0);
+    --card: oklch(0.29 0.0651 266.79);
     --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.145 0 0);
+    --popover: oklch(0.29 0.0651 266.79);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.985 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
+    --primary: var(--color-brand-blue-300);
+    --primary-foreground: var(--color-brand-navy-950);
+    --secondary: oklch(0.32 0.0651 266.79);
     --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
+    --muted: oklch(0.32 0.0651 266.79);
+    --muted-foreground: var(--color-brand-navy-300);
+    --accent: oklch(0.36 0.0742 266.79);
     --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.396 0.141 25.723);
-    --destructive-foreground: oklch(0.637 0.237 25.331);
-    --border: oklch(0.269 0 0);
-    --input: oklch(0.269 0 0);
-    --ring: oklch(0.439 0 0);
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
-    --sidebar: oklch(0.205 0 0);
+    --destructive: var(--color-brand-red-500);
+    --destructive-foreground: var(--color-brand-red-400);
+    --border: oklch(0.36 0.0651 266.79);
+    --input: oklch(0.36 0.0651 266.79);
+    --ring: var(--color-brand-blue-400);
+    --chart-1: var(--color-brand-blue-400);
+    --chart-2: var(--color-brand-green-400);
+    --chart-3: var(--color-brand-red-400);
+    --chart-4: var(--color-brand-navy-400);
+    --chart-5: var(--color-brand-blue-200);
+    --sidebar: oklch(0.27 0.0651 266.79);
     --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.985 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-primary: var(--color-brand-blue-300);
+    --sidebar-primary-foreground: var(--color-brand-navy-950);
+    --sidebar-accent: oklch(0.36 0.0742 266.79);
     --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(0.269 0 0);
-    --sidebar-ring: oklch(0.439 0 0);
+    --sidebar-border: oklch(0.36 0.0651 266.79);
+    --sidebar-ring: var(--color-brand-blue-400);
 }
 
 @layer base {
@@ -182,46 +198,64 @@
     }
 }
 @layer utilities {
-    .section-background-motion {
-        opacity: 0.22;
-        filter: grayscale(1) invert(1);
-        mix-blend-mode: multiply;
-    }
-    .section-background--dark .section-background-motion {
-        opacity: 0.4;
-        filter: grayscale(1);
-        mix-blend-mode: screen;
-    }
-    .section-background .threeui-background,
-    .section-background canvas {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        inset: 0;
-    }
-    .marquee-group {
-        min-width: 100vw;
-    }
-    .halftone-wave {
-        color: var(--color-cobalt-blue-300);
-        pointer-events: none;
+    .public-site {
+        --hairline: color-mix(in oklab, var(--color-ink) 12%, transparent);
     }
     .public-site :is(h1, h2) {
         text-wrap: balance;
     }
     .public-site section[id] {
-        scroll-margin-top: 2rem;
+        scroll-margin-top: 6rem;
     }
     .public-site :is(a, button):focus-visible,
     .public-menu :is(a, button):focus-visible {
         outline: 2px solid currentColor;
-        outline-offset: 6px;
+        outline-offset: 4px;
+        border-radius: 2px;
     }
-    .public-site .reveal:focus-within,
-    .public-site main > section > :focus-within {
-        opacity: 1 !important;
-        visibility: visible !important;
+
+    /* Section texture: tiled brand pattern under a ThreeUI shader. */
+    .section-background {
+        color: var(--color-brand-navy-900);
+    }
+    .section-background--dark {
+        color: #ffffff;
+    }
+    .section-background .threeui-background,
+    .section-background canvas {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+    /*
+     * The dot matrix composites on alpha but paints a cyan that reads too cold
+     * on its own, so `multiply` lets it tint the section instead of sitting on
+     * top of it. The ribbon shader writes opaque pixels over a near-black field,
+     * which `screen` drops out against the deep navy surfaces it runs on.
+     */
+    .section-background-motion {
+        opacity: 0.3;
+        mix-blend-mode: multiply;
+    }
+    .section-background--dark .section-background-motion {
+        opacity: 0.5;
+        mix-blend-mode: screen;
+    }
+
+    /*
+     * Hero copy is hidden from the very first paint so GSAP never has to fade
+     * out something the browser already showed. `.js-motion` is set on <html> by
+     * an inline script, so the copy stays visible when scripting is unavailable.
+     */
+    .js-motion .public-site[data-motion='playing'] .hero-reveal {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .marquee-group {
+        min-width: 100vw;
     }
     .public-skip-link {
         position: fixed;
@@ -229,8 +263,9 @@
         left: 1rem;
         z-index: 100;
         padding: 0.85rem 1.25rem;
-        background: var(--color-mint-cream-200);
-        color: var(--color-dark-emerald-900);
+        border-radius: 999px;
+        background: var(--color-brand-blue-800);
+        color: #ffffff;
         transform: translateY(-200%);
     }
     .public-skip-link:focus {
@@ -264,6 +299,10 @@
         [data-slot='sheet-overlay'] {
             animation: none !important;
             transition: none !important;
+        }
+        .public-site .hero-reveal {
+            opacity: 1 !important;
+            visibility: visible !important;
         }
         .public-site .motion-control {
             display: none;

@@ -42,11 +42,11 @@ export function SlidingTextLink({
             className={cn(
                 'group/cta relative inline-flex min-h-12 items-center justify-center gap-6 overflow-hidden rounded-full border px-6 py-3.5 text-sm font-semibold transition duration-300 hover:-translate-y-0.5',
                 variant === 'dark' &&
-                    'border-[#193e32] bg-[#193e32] text-white shadow-[0_3px_0_#0c251d]',
+                    'border-brand-blue-800 bg-brand-blue-800 text-white shadow-[0_3px_0_var(--color-brand-blue-950)]',
                 variant === 'light' &&
-                    'border-[#dfedc7] bg-[#dfedc7] text-[#193e32] shadow-[0_3px_0_#acc096]',
+                    'text-brand-blue-800 border-white bg-white shadow-[0_3px_0_var(--color-brand-blue-200)]',
                 variant === 'outline' &&
-                    'border-current/25 bg-transparent text-current hover:bg-current/5',
+                    'border-current/30 bg-transparent text-current hover:bg-current/10',
                 className,
             )}
         >
@@ -76,16 +76,16 @@ export function EditorialIntro({
     children: ReactNode;
 }): React.JSX.Element {
     return (
-        <div className="reveal grid gap-8 border-t border-[#193e32]/20 pt-7 lg:grid-cols-[1fr_2fr] lg:gap-20">
+        <div className="reveal border-ink/15 grid gap-8 border-t pt-7 lg:grid-cols-[1fr_2fr] lg:gap-20">
             <p className="flex items-start gap-3 text-xs font-medium tracking-[.12em] uppercase">
-                <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[#648b56]" />
+                <span className="bg-brand-red-600 mt-1.5 size-1.5 shrink-0 rounded-full" />
                 {label}
             </p>
             <div>
                 <h2 className="max-w-3xl font-serif text-[clamp(2.5rem,4.8vw,4.75rem)] leading-[1.06] tracking-[-.045em]">
                     {title}
                 </h2>
-                <div className="mt-7 max-w-2xl text-base leading-8 text-[#52665c]">
+                <div className="text-ink-muted mt-7 max-w-2xl text-base leading-8">
                     {children}
                 </div>
             </div>
