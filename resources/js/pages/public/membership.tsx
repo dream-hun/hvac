@@ -1,5 +1,7 @@
+import { Check } from 'lucide-react';
 import HomeSectionBackground from '@/components/home-section-background';
 import PublicPageHero from '@/components/public-page-hero';
+import SectionHeading from '@/components/section-heading';
 import { SlidingTextLink } from '@/components/threeui-public';
 import PublicSiteLayout from '@/layouts/public-site-layout';
 import { contact } from '@/routes';
@@ -37,6 +39,12 @@ const benefits = [
     'Invitations to conferences and industry meetings',
     'Opportunities to contribute to industry discussions',
 ];
+const steps = [
+    'Complete the membership form',
+    'Upload the required documents',
+    'Submit the application for Society review',
+    'Receive confirmation after approval',
+];
 
 export default function Membership(): React.JSX.Element {
     return (
@@ -45,54 +53,38 @@ export default function Membership(): React.JSX.Element {
             hero={
                 <PublicPageHero
                     eyebrow="Membership"
-                    title={
-                        <>
-                            Join the network
-                            <br />
-                            moving{' '}
-                            <i className="text-brand-green-300 font-normal">
-                                forward.
-                            </i>
-                        </>
-                    }
+                    title="Become a member of the Society"
                     copy="Join a professional community committed to improving technical competence, workplace safety, energy efficiency, and responsible refrigeration practices in Rwanda."
                     action={{
                         label: 'Start your application',
                         route: contact(),
                     }}
                     image="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1400&q=85"
+                    imageAlt="HVAC professionals at work"
                 />
             }
         >
-            <section className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14">
+            <section className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-24 lg:px-14">
                 <HomeSectionBackground variant="dots" />
                 <div className="mx-auto max-w-312">
-                    <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
-                        <h2 className="font-serif text-5xl leading-[1.04] tracking-[-.02em] md:text-6xl">
-                            Choose your place.
-                        </h2>
-                        <p className="text-ink-muted max-w-sm text-sm leading-6">
-                            Membership is designed to reflect the many ways
-                            professionals and institutions contribute to the
-                            sector.
-                        </p>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Membership categories"
+                        title="Five ways to join"
+                        lead="Membership reflects the many ways professionals and institutions contribute to the sector."
+                    />
                     <div
                         data-scroll-3d="cards"
-                        className="mt-12 grid gap-5 md:grid-cols-2"
+                        className="mt-10 grid gap-5 md:grid-cols-2"
                     >
-                        {categories.map(([title, copy], index) => (
+                        {categories.map(([title, copy]) => (
                             <article
                                 key={title}
                                 className="border-ink/10 shadow-card rounded-2xl border bg-white p-6 md:p-8"
                             >
-                                <span className="text-brand-blue-700 font-serif text-2xl">
-                                    0{index + 1}
-                                </span>
-                                <h3 className="mt-8 text-2xl font-semibold tracking-[-.02em]">
+                                <h3 className="text-xl font-semibold tracking-tight">
                                     {title} membership
                                 </h3>
-                                <p className="text-ink-muted mt-4 max-w-md text-sm leading-6">
+                                <p className="text-ink-muted mt-3 max-w-md text-sm leading-6">
                                     {copy}
                                 </p>
                             </article>
@@ -100,31 +92,25 @@ export default function Membership(): React.JSX.Element {
                     </div>
                 </div>
             </section>
-            <section className="bg-brand-blue-50 relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14">
+            <section className="bg-brand-blue-50 relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-24 lg:px-14">
                 <HomeSectionBackground variant="airflow" />
-                <div className="mx-auto grid max-w-312 gap-14 lg:grid-cols-2">
-                    <div>
-                        <p className="text-xs font-medium tracking-[.12em] uppercase">
-                            What membership opens up
-                        </p>
-                        <span
-                            aria-hidden="true"
-                            className="bg-brand-red-600 mt-4 block h-0.5 w-12 rounded-full"
-                        />
-                        <h2 className="mt-6 font-serif text-5xl leading-[1.04] tracking-[-.02em] md:text-6xl">
-                            Useful access. Meaningful connection.
-                        </h2>
-                    </div>
+                <div className="mx-auto grid max-w-312 gap-10 lg:grid-cols-[1fr_1.4fr]">
+                    <SectionHeading
+                        eyebrow="Membership benefits"
+                        title="What members receive"
+                    />
                     <ul className="border-ink/20 border-t">
-                        {benefits.map((benefit, index) => (
+                        {benefits.map((benefit) => (
                             <li
                                 key={benefit}
-                                className="border-ink/20 flex gap-5 border-b py-5"
+                                className="border-ink/20 flex gap-4 border-b py-4"
                             >
-                                <span className="text-brand-blue-700 font-serif text-xl">
-                                    0{index + 1}
-                                </span>
-                                <span className="pt-1 text-sm font-semibold">
+                                <Check
+                                    size={18}
+                                    className="text-brand-green-700 mt-0.5 shrink-0"
+                                    aria-hidden="true"
+                                />
+                                <span className="text-sm leading-6">
                                     {benefit}
                                 </span>
                             </li>
@@ -132,35 +118,29 @@ export default function Membership(): React.JSX.Element {
                     </ul>
                 </div>
             </section>
-            <section className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14">
+            <section className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-24 lg:px-14">
                 <HomeSectionBackground variant="grid" />
-                <div className="border-ink/15 mx-auto max-w-312 border-t pt-8">
-                    <p className="text-ink-muted text-xs font-medium tracking-[.12em] uppercase">
-                        Application process
-                    </p>
-                    <div
+                <div className="mx-auto max-w-312">
+                    <SectionHeading
+                        eyebrow="Application process"
+                        title="How to apply"
+                    />
+                    <ol
                         data-scroll-3d="cards"
                         className="mt-10 grid gap-6 md:grid-cols-4"
                     >
-                        {[
-                            'Complete the membership form',
-                            'Upload required documents',
-                            'Submit for Society review',
-                            'Receive confirmation after approval',
-                        ].map((step, index) => (
-                            <div
+                        {steps.map((step, index) => (
+                            <li
                                 key={step}
                                 className="border-ink/10 bg-canvas-sunken rounded-2xl border p-6"
                             >
-                                <span className="text-brand-blue-700 font-serif text-4xl">
-                                    0{index + 1}
+                                <span className="bg-brand-blue-800 grid size-8 place-items-center rounded-full text-sm font-semibold text-white">
+                                    {index + 1}
                                 </span>
-                                <p className="mt-5 max-w-44 text-sm leading-6">
-                                    {step}
-                                </p>
-                            </div>
+                                <p className="mt-5 text-sm leading-6">{step}</p>
+                            </li>
                         ))}
-                    </div>
+                    </ol>
                     <SlidingTextLink href={contact()} className="mt-10">
                         Enquire about membership
                     </SlidingTextLink>

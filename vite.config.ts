@@ -57,19 +57,6 @@ export default defineConfig({
                         },
                     ],
                 }),
-                local('Instrument Serif', {
-                    variants: [
-                        {
-                            src: 'resources/fonts/instrument-serif-400-normal.woff2',
-                            weight: 400,
-                        },
-                        {
-                            src: 'resources/fonts/instrument-serif-400-italic.woff2',
-                            weight: 400,
-                            style: 'italic',
-                        },
-                    ],
-                }),
             ],
         }),
         inertia(),

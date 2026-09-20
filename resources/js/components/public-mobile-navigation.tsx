@@ -49,31 +49,28 @@ export default function PublicMobileNavigation({
                 data-lenis-prevent
                 className="public-menu bg-brand-navy-950 w-full overflow-y-auto border-white/15 px-6 pt-8 pb-10 text-white motion-reduce:animate-none motion-reduce:transition-none sm:max-w-lg [&>button]:top-5 [&>button]:right-5 [&>button]:grid [&>button]:size-11 [&>button]:place-items-center"
             >
-                <SheetTitle className="text-brand-green-300 pr-14 text-xs tracking-[.16em] uppercase">
+                <SheetTitle className="text-brand-green-300 pr-14 text-xs font-semibold tracking-[.12em] uppercase">
                     Explore the Society
                 </SheetTitle>
                 <nav
                     aria-label="Mobile navigation"
                     className="my-auto flex shrink-0 flex-col py-12"
                 >
-                    {publicNavigation.map(([label, route], index) => (
+                    {publicNavigation.map(([label, route]) => (
                         <Link
                             key={label}
                             href={route()}
                             onClick={() => onOpenChange(false)}
-                            className="group hover:text-brand-green-300 flex items-center gap-4 border-b border-white/20 py-5 font-serif text-[clamp(1.8rem,7vw,3rem)] tracking-tight transition-colors"
+                            className="group hover:text-brand-green-300 flex items-center gap-4 border-b border-white/20 py-5 text-xl font-semibold tracking-tight transition-colors"
                         >
-                            <span className="text-brand-green-300 font-sans text-xs tracking-normal">
-                                0{index + 1}
-                            </span>
                             {label}
                             <ArrowUpRight className="text-brand-green-300 ml-auto size-5" />
                         </Link>
                     ))}
                 </nav>
                 <SheetDescription className="max-w-xs text-sm leading-6 text-white/70">
-                    A professional home for Rwanda’s cooling and ventilation
-                    sector.
+                    Rwanda Society of HVAC and Refrigeration — a nonprofit
+                    professional organization.
                 </SheetDescription>
             </SheetContent>
         </Sheet>

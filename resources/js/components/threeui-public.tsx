@@ -1,5 +1,5 @@
 /**
- * Adapted from ThreeUI Community Sliding Text CTA and Editorial Intro Section.
+ * Adapted from the ThreeUI Community Sliding Text CTA.
  * https://github.com/MengTo/threeui — MIT License
  * Copyright (c) 2026 Meng To
  *
@@ -21,7 +21,6 @@
  */
 import { Link } from '@inertiajs/react';
 import { ArrowUpRight } from 'lucide-react';
-import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import type { RouteDefinition } from '@/wayfinder';
 
@@ -63,32 +62,5 @@ export function SlidingTextLink({
             </span>
             <ArrowUpRight size={16} aria-hidden="true" />
         </Link>
-    );
-}
-
-export function EditorialIntro({
-    label,
-    title,
-    children,
-}: {
-    label: string;
-    title: ReactNode;
-    children: ReactNode;
-}): React.JSX.Element {
-    return (
-        <div className="reveal border-ink/15 grid gap-8 border-t pt-7 lg:grid-cols-[1fr_2fr] lg:gap-20">
-            <p className="flex items-start gap-3 text-xs font-medium tracking-[.12em] uppercase">
-                <span className="bg-brand-red-600 mt-1.5 size-1.5 shrink-0 rounded-full" />
-                {label}
-            </p>
-            <div>
-                <h2 className="max-w-3xl font-serif text-[clamp(2.5rem,4.8vw,4.75rem)] leading-[1.06] tracking-[-.045em]">
-                    {title}
-                </h2>
-                <div className="text-ink-muted mt-7 max-w-2xl text-base leading-8">
-                    {children}
-                </div>
-            </div>
-        </div>
     );
 }

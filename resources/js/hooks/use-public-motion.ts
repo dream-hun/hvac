@@ -135,7 +135,14 @@ export function usePublicMotion(
                                     y: 0,
                                     scale: 1,
                                     ease: 'none',
-                                    clearProps: 'transform',
+                                    /*
+                                     * `clearProps: 'transform'` drops the
+                                     * transform but leaves transform-origin
+                                     * inline, which would keep these cards
+                                     * pinned to a bottom origin for every
+                                     * later transform. Name it explicitly.
+                                     */
+                                    clearProps: 'transform,transformOrigin',
                                     scrollTrigger: {
                                         trigger: element,
                                         start: 'clamp(top 92%)',

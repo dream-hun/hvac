@@ -1,5 +1,6 @@
 import HomeSectionBackground from '@/components/home-section-background';
 import PublicPageHero from '@/components/public-page-hero';
+import SectionHeading from '@/components/section-heading';
 import PublicSiteLayout from '@/layouts/public-site-layout';
 import { contact } from '@/routes';
 
@@ -17,11 +18,11 @@ const programs = [
         'Helping professionals and equipment owners reduce consumption through correct sizing, maintenance, insulation, temperature control, and customer education.',
     ],
     [
-        'Youth & student development',
+        'Youth and student development',
         'Career guidance, mentorship, practical demonstrations, internship referrals, industry visits, competitions, and employment preparation.',
     ],
     [
-        'Women in HVAC & refrigeration',
+        'Women in HVAC and refrigeration',
         'Technical training, mentorship, career guidance, business development, outreach, networking, and leadership opportunities.',
     ],
     [
@@ -36,48 +37,38 @@ export default function Programs(): React.JSX.Element {
             title="Programs & activities"
             hero={
                 <PublicPageHero
-                    eyebrow="Programs & activities"
-                    title={
-                        <>
-                            Work that moves
-                            <br />
-                            the sector{' '}
-                            <i className="text-brand-green-300 font-normal">
-                                forward.
-                            </i>
-                        </>
-                    }
+                    eyebrow="Programs and activities"
+                    title="Programs that improve skills, safety, and efficiency"
                     copy="The Society organizes programs that improve technical skills, promote safe practices, support environmental responsibility, and connect professionals with industry opportunities."
                     action={{
                         label: 'Register your interest',
                         route: contact(),
                     }}
                     image="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1400&q=85"
+                    imageAlt="Technicians in a training workshop"
                 />
             }
         >
             <section
                 id="program-list"
-                className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14"
+                className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-24 lg:px-14"
             >
                 <HomeSectionBackground variant="grid" />
                 <div className="mx-auto max-w-312">
-                    <p className="text-ink-muted text-xs font-medium tracking-[.12em] uppercase">
-                        Our program areas
-                    </p>
-                    <div data-scroll-3d="cards" className="mt-8 grid gap-4">
-                        {programs.map(([title, copy], index) => (
+                    <SectionHeading
+                        eyebrow="Our program areas"
+                        title="Six areas of work"
+                    />
+                    <div data-scroll-3d="cards" className="mt-10 grid gap-4">
+                        {programs.map(([title, copy]) => (
                             <article
                                 key={title}
-                                className="border-ink/10 shadow-card grid gap-6 rounded-2xl border bg-white p-6 md:grid-cols-12 md:gap-10 md:p-8"
+                                className="border-ink/10 shadow-card grid gap-4 rounded-2xl border bg-white p-6 md:grid-cols-12 md:gap-10 md:p-8"
                             >
-                                <span className="text-brand-blue-700 font-serif text-3xl md:col-span-1">
-                                    0{index + 1}
-                                </span>
-                                <h2 className="text-2xl font-semibold tracking-[-.02em] md:col-span-4">
+                                <h2 className="text-xl font-semibold tracking-tight md:col-span-5">
                                     {title}
                                 </h2>
-                                <p className="text-ink-muted max-w-xl text-sm leading-6 md:col-span-6 md:col-start-7">
+                                <p className="text-ink-muted max-w-2xl text-sm leading-6 md:col-span-7">
                                     {copy}
                                 </p>
                             </article>
@@ -85,13 +76,14 @@ export default function Programs(): React.JSX.Element {
                     </div>
                 </div>
             </section>
-            <section className="bg-canvas-sunken relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14">
+            <section className="bg-canvas-sunken relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-24 lg:px-14">
                 <HomeSectionBackground variant="airflow" />
-                <div className="mx-auto grid max-w-312 gap-12 lg:grid-cols-12">
-                    <h2 className="font-serif text-5xl leading-[1.04] tracking-[-.02em] md:text-6xl lg:col-span-5">
-                        Programs that meet people where the work happens.
-                    </h2>
-                    <div className="lg:col-span-5 lg:col-start-8">
+                <div className="mx-auto grid max-w-312 gap-10 lg:grid-cols-2">
+                    <SectionHeading
+                        eyebrow="Program information"
+                        title="Details are published for every activity"
+                    />
+                    <div>
                         <p className="text-ink-muted text-base leading-7">
                             Every program is built around practical outcomes.
                             Information on dates, locations, participation
@@ -100,7 +92,7 @@ export default function Programs(): React.JSX.Element {
                         </p>
                         <a
                             href="#program-list"
-                            className="border-brand-blue-800 text-brand-blue-800 mt-8 inline-flex border-b pb-2 text-[11px] font-bold tracking-[.14em] uppercase"
+                            className="border-brand-blue-800 text-brand-blue-800 mt-6 inline-flex border-b pb-2 text-sm font-semibold"
                         >
                             Explore program areas
                         </a>
