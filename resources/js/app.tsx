@@ -34,7 +34,7 @@ void createInertiaApp({
         );
     },
     progress: {
-        color: '#4B5563',
+        color: '#2a6dd7', // brand-blue-600; literal because Inertia injects this outside the theme
     },
 });
 

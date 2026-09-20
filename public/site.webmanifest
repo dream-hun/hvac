@@ -1,0 +1,19 @@
+{
+    "name": "Rwanda Society of HVAC and Refrigeration",
+    "short_name": "RSHVACR",
+    "description": "A professional home for Rwanda's heating, ventilation, air conditioning, and refrigeration sector.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#20305C",
+    "icons": [
+        { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+        {
+            "src": "/icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
