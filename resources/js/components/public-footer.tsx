@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import MotionControl from '@/components/motion-control';
 import { publicNavigation } from '@/components/public-mobile-navigation';
 import RshvacrLogo from '@/components/rshvacr-logo';
+import SocialLinks from '@/components/social-links';
 import { contact, home } from '@/routes';
 
 export default function PublicFooter(): React.JSX.Element {
@@ -18,12 +19,14 @@ export default function PublicFooter(): React.JSX.Element {
                             <RshvacrLogo className="w-52" />
                         </Link>
                         <p className="mt-6 max-w-sm text-sm leading-7 text-white/70">
-                            A professional home for the people shaping Rwanda’s
-                            cooling and ventilation future.
+                            The Rwanda Society of HVAC and Refrigeration is a
+                            nonprofit professional organization supporting
+                            technical training, safe practice, and responsible
+                            refrigerant management.
                         </p>
                     </div>
                     <div>
-                        <p className="text-brand-green-300 mb-6 text-[10px] tracking-[.14em] uppercase">
+                        <p className="text-brand-green-300 mb-6 text-xs font-semibold tracking-[.12em] uppercase">
                             Explore
                         </p>
                         <nav
@@ -42,7 +45,7 @@ export default function PublicFooter(): React.JSX.Element {
                         </nav>
                     </div>
                     <div>
-                        <p className="text-brand-green-300 mb-6 text-[10px] tracking-[.14em] uppercase">
+                        <p className="text-brand-green-300 mb-6 text-xs font-semibold tracking-[.12em] uppercase">
                             Stay connected
                         </p>
                         <p className="text-sm text-white/75">Kigali, Rwanda</p>
@@ -56,15 +59,13 @@ export default function PublicFooter(): React.JSX.Element {
                             Get in touch
                             <ArrowUpRight size={15} aria-hidden="true" />
                         </Link>
+                        <SocialLinks className="mt-7" />
                     </div>
                 </div>
-                <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6 text-[10px] tracking-[.05em] text-white/60">
+                <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6 text-xs text-white/60">
                     <span>
-                        © {new Date().getFullYear()} RSHVACR. All rights
-                        reserved.
-                    </span>
-                    <span className="hidden sm:block">
-                        Technical competence. Shared progress.
+                        © {new Date().getFullYear()} Rwanda Society of HVAC and
+                        Refrigeration. All rights reserved.
                     </span>
                     <MotionControl className="text-white/70" />
                 </div>

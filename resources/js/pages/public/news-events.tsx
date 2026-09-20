@@ -1,5 +1,6 @@
 import HomeSectionBackground from '@/components/home-section-background';
 import PublicPageHero from '@/components/public-page-hero';
+import SectionHeading from '@/components/section-heading';
 import PublicSiteLayout from '@/layouts/public-site-layout';
 import { contact } from '@/routes';
 
@@ -27,51 +28,42 @@ const stories = [
     ],
 ];
 
+const events = [
+    'Technical workshops',
+    'Training courses',
+    'Member meetings',
+    'Industry exhibitions',
+];
+
 export default function NewsEvents(): React.JSX.Element {
     return (
         <PublicSiteLayout
             title="News & events"
             hero={
                 <PublicPageHero
-                    eyebrow="News & events"
-                    title={
-                        <>
-                            The sector is
-                            <br />
-                            <i className="text-brand-green-300 font-normal">
-                                in conversation.
-                            </i>
-                        </>
-                    }
+                    eyebrow="News and events"
+                    title="Announcements, training opportunities, and events"
                     copy="Read Society announcements, discover training opportunities, and register for upcoming industry events."
                     action={{ label: 'Ask about an event', route: contact() }}
                     image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=85"
+                    imageAlt="Professionals attending an industry meeting"
                 />
             }
         >
-            <section className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14">
+            <section className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-24 lg:px-14">
                 <HomeSectionBackground variant="dots" />
                 <div className="mx-auto max-w-312">
-                    <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-                        <div>
-                            <p className="text-ink-muted text-xs font-medium tracking-[.12em] uppercase">
-                                Latest updates
-                            </p>
-                            <h2 className="mt-5 font-serif text-5xl leading-[1.04] tracking-[-.02em] md:text-6xl">
-                                Ideas in circulation.
-                            </h2>
-                        </div>
-                        <p className="text-ink-muted max-w-sm text-sm leading-6">
-                            News stories, training announcements, and industry
-                            updates will appear here as they are published.
-                        </p>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Latest updates"
+                        title="News from the Society"
+                        lead="News stories, training announcements, and industry updates will appear here as they are published."
+                    />
                     <div
                         data-scroll-3d="cards"
-                        className="mt-12 grid gap-x-6 gap-y-12 md:grid-cols-3"
+                        className="mt-10 grid gap-x-6 gap-y-12 md:grid-cols-3"
                     >
                         {stories.map(([type, title, copy], index) => (
-                            <article key={title} className="group">
+                            <article key={title}>
                                 <div className="bg-brand-navy-100 aspect-3/2 overflow-hidden rounded-xl">
                                     <img
                                         data-scroll-image
@@ -79,19 +71,21 @@ export default function NewsEvents(): React.JSX.Element {
                                         alt=""
                                         loading="lazy"
                                         decoding="async"
-                                        className="size-full object-cover transition duration-500 group-hover:scale-105"
+                                        className="size-full object-cover"
                                     />
                                 </div>
-                                <p className="text-ink-muted mt-5 text-[10px] tracking-[.08em] uppercase">
-                                    Coming soon
-                                </p>
-                                <p className="border-ink/20 mt-3 inline-flex rounded-full border px-3 py-1.5 text-[10px] font-medium tracking-[.08em] uppercase">
-                                    {type}
-                                </p>
-                                <h3 className="mt-4 text-xl leading-snug font-medium tracking-[-.02em]">
+                                <div className="mt-5 flex flex-wrap items-center gap-3 text-xs">
+                                    <span className="border-ink/20 rounded-full border px-3 py-1.5 font-medium">
+                                        {type}
+                                    </span>
+                                    <span className="text-ink-muted">
+                                        Coming soon
+                                    </span>
+                                </div>
+                                <h2 className="mt-4 text-lg leading-snug font-semibold tracking-tight">
                                     {title}
-                                </h3>
-                                <p className="text-ink-muted mt-5 text-sm leading-6">
+                                </h2>
+                                <p className="text-ink-muted mt-3 text-sm leading-6">
                                     {copy}
                                 </p>
                             </article>
@@ -99,37 +93,31 @@ export default function NewsEvents(): React.JSX.Element {
                     </div>
                 </div>
             </section>
-            <section className="bg-brand-navy-900 relative isolate overflow-hidden px-5 py-24 text-white md:px-10 md:py-32 lg:px-14">
+            <section className="bg-brand-navy-900 relative isolate overflow-hidden px-5 py-20 text-white md:px-10 md:py-24 lg:px-14">
                 <HomeSectionBackground variant="dots" dark />
-                <div className="mx-auto grid max-w-312 gap-12 lg:grid-cols-2">
+                <div className="mx-auto grid max-w-312 gap-10 lg:grid-cols-2">
                     <div>
-                        <p className="text-brand-green-300 text-xs font-medium tracking-[.12em] uppercase">
+                        <p className="text-brand-green-300 text-xs font-semibold tracking-[.12em] uppercase">
                             Upcoming events
                         </p>
-                        <h2 className="mt-6 font-serif text-5xl leading-[1.04] tracking-[-.02em] md:text-6xl">
-                            Save the space for what’s next.
+                        <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
+                            What the Society organizes
                         </h2>
+                        <p className="mt-5 max-w-md text-sm leading-7 text-white/75">
+                            Event dates, locations, and registration details
+                            will be published here once confirmed.
+                        </p>
                     </div>
-                    <div className="border-t border-white/20">
-                        {[
-                            'Technical workshops',
-                            'Training courses',
-                            'Member meetings',
-                            'Industry exhibitions',
-                        ].map((event, index) => (
-                            <div
+                    <ul className="border-t border-white/20">
+                        {events.map((event) => (
+                            <li
                                 key={event}
-                                className="flex items-center justify-between border-b border-white/20 py-6"
+                                className="border-b border-white/20 py-5 text-sm font-medium"
                             >
-                                <span className="text-sm font-semibold">
-                                    {event}
-                                </span>
-                                <span className="text-brand-green-300 font-serif text-2xl">
-                                    0{index + 1}
-                                </span>
-                            </div>
+                                {event}
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             </section>
         </PublicSiteLayout>

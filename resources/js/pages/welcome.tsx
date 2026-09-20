@@ -4,7 +4,6 @@ import {
     ArrowRight,
     ArrowUpRight,
     BookOpen,
-    Check,
     Leaf,
     ShieldCheck,
     Users,
@@ -12,7 +11,8 @@ import {
 import AirflowGraphic from '@/components/airflow-graphic';
 import HomeSectionBackground from '@/components/home-section-background';
 import MotionControl from '@/components/motion-control';
-import { EditorialIntro, SlidingTextLink } from '@/components/threeui-public';
+import SectionHeading from '@/components/section-heading';
+import { SlidingTextLink } from '@/components/threeui-public';
 import PublicSiteLayout from '@/layouts/public-site-layout';
 import {
     about,
@@ -25,35 +25,43 @@ import {
 const focusAreas = [
     {
         icon: BookOpen,
-        title: 'Knowledge that works.',
-        label: 'Technical training',
-        copy: 'Practical skills for installation, maintenance, diagnostics, and responsible refrigerant handling.',
+        title: 'Technical training',
+        copy: 'Practical training on installation, maintenance, troubleshooting, electrical safety, equipment inspection, and refrigerant handling.',
     },
     {
         icon: ShieldCheck,
-        title: 'Standards that matter.',
-        label: 'Safety & standards',
-        copy: 'Reliable systems, safer worksites, and a shared commitment to professional working practices.',
+        title: 'Safety and standards',
+        copy: 'Safe installation, servicing, maintenance, equipment testing, and workplace procedures on every job.',
     },
     {
         icon: Leaf,
-        title: 'A lighter footprint.',
-        label: 'Environmental care',
-        copy: 'Better cooling through energy efficiency, leak prevention, recovery, and responsible disposal.',
+        title: 'Environmental responsibility',
+        copy: 'Leak prevention, refrigerant recovery, energy efficiency, equipment maintenance, and responsible disposal.',
     },
     {
         icon: Users,
-        title: 'Progress, together.',
-        label: 'Industry collaboration',
-        copy: 'Connecting professionals, institutions, suppliers, and public partners around common goals.',
+        title: 'Industry collaboration',
+        copy: 'Connecting professionals, companies, training institutions, suppliers, government institutions, and development partners.',
     },
 ];
 
 const programs = [
-    ['Technical workshops', 'Hands-on skills for the field', '01'],
-    ['Refrigerant management', 'Responsible practice, better outcomes', '02'],
-    ['Youth development', 'Building the next generation', '03'],
-    ['Women in HVAC&R', 'Space, support, and opportunity', '04'],
+    [
+        'Technical workshops',
+        'Hands-on sessions on installation, servicing, and diagnostics.',
+    ],
+    [
+        'Refrigerant management',
+        'Safe handling, leak prevention, recovery, and recycling.',
+    ],
+    [
+        'Youth and student development',
+        'Mentorship, career guidance, and industry exposure.',
+    ],
+    [
+        'Women in HVAC and refrigeration',
+        'Training, mentorship, and leadership opportunities.',
+    ],
 ];
 
 const news = [
@@ -69,16 +77,16 @@ const news = [
     ],
     [
         'Sustainability',
-        'The case for responsible refrigerant management in Rwanda',
+        'Responsible refrigerant management in Rwanda',
         'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=85',
     ],
 ];
 
 const memberships = [
-    ['Individual', 'For professionals building their expertise.'],
-    ['Corporate', 'For businesses strengthening the sector.'],
-    ['Student', 'For the next generation of practitioners.'],
-    ['Institutional', 'For partners moving the industry forward.'],
+    ['Professional', 'Technicians, engineers, consultants, and installers.'],
+    ['Corporate', 'HVAC and refrigeration companies and service providers.'],
+    ['Student', 'Students in HVAC, refrigeration, and related programs.'],
+    ['Institutional', 'Training institutions and public institutions.'],
 ];
 
 function HomeHero(): React.JSX.Element {
@@ -99,25 +107,15 @@ function HomeHero(): React.JSX.Element {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(58%_42%_at_50%_46%,var(--color-brand-navy-950)_0%,transparent_78%)] opacity-90 sm:opacity-70"
             />
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-5 top-8 bottom-22 -z-10 mx-auto max-w-312 border-x border-white/5 md:inset-x-10 lg:inset-x-14"
-            />
-            <div className="relative mx-auto my-auto flex w-full max-w-5xl flex-col items-center py-16 text-center">
-                <p className="hero-reveal border-brand-green-300/25 bg-brand-navy-950/70 mb-7 inline-flex items-center gap-2.5 rounded-full border px-4 py-2 text-[10px] font-medium tracking-[.15em] text-balance uppercase backdrop-blur-sm">
-                    <span className="bg-brand-red-500 size-1.5 shrink-0 rounded-full max-sm:hidden" />
-                    A professional home for Rwanda’s HVAC&R sector
-                </p>
-                <h1 className="hero-reveal font-serif text-[clamp(3.4rem,7.9vw,7.5rem)] leading-[.98] tracking-[-.03em] [text-shadow:0_3px_24px_var(--color-brand-navy-950)]">
-                    A better climate
-                    <br />
-                    <span className="text-brand-green-300 italic">
-                        for progress.
-                    </span>
+            <div className="relative mx-auto my-auto flex w-full max-w-4xl flex-col items-center py-16 text-center">
+                <h1 className="hero-reveal text-3xl font-semibold tracking-tight text-balance [text-shadow:0_3px_24px_var(--color-brand-navy-950)] sm:text-4xl lg:text-5xl">
+                    Advancing HVAC and refrigeration professionals in Rwanda
                 </h1>
-                <p className="hero-reveal mt-7 max-w-115 text-sm leading-7 text-white/80 sm:text-base">
-                    Advancing the people, standards, and ideas behind Rwanda’s
-                    cooling and ventilation future.
+                <p className="hero-reveal mt-6 max-w-2xl text-sm leading-7 text-white/80 sm:text-base">
+                    The Rwanda Society of HVAC and Refrigeration is a nonprofit
+                    professional organization bringing together technicians,
+                    engineers, students, companies, training institutions, and
+                    industry partners.
                 </p>
                 <div className="hero-reveal mt-9 flex flex-wrap justify-center gap-4">
                     <SlidingTextLink href={membership()} variant="light">
@@ -128,19 +126,19 @@ function HomeHero(): React.JSX.Element {
                         variant="outline"
                         className="bg-brand-navy-950/60 backdrop-blur-sm"
                     >
-                        Explore our work
+                        View our programs
                     </SlidingTextLink>
                 </div>
             </div>
-            <div className="relative mx-auto flex w-full max-w-312 flex-wrap items-center justify-between gap-3 border-t border-white/20 pt-5 text-[10px] tracking-[.12em] uppercase">
+            <div className="relative mx-auto flex w-full max-w-312 flex-wrap items-center justify-between gap-3 border-t border-white/20 pt-5 text-[11px]">
                 <a
                     href="#about"
                     className="hover:text-brand-green-300 inline-flex min-h-11 items-center gap-3 transition-colors"
                 >
-                    Discover the Society <ArrowDown size={14} />
+                    About the Society <ArrowDown size={14} />
                 </a>
                 <span className="hidden text-white/65 md:block">
-                    Rooted in Rwanda. Looking forward.
+                    Rwanda Society of HVAC &amp; Refrigeration
                 </span>
                 <MotionControl className="text-white/70" />
             </div>
@@ -156,117 +154,77 @@ export default function Welcome(): React.JSX.Element {
             hero={<HomeHero />}
         >
             <section
-                aria-label="Our commitments"
-                className="border-ink/10 bg-canvas-sunken border-b px-5 py-6 md:px-10 lg:px-14"
-            >
-                <div className="mx-auto grid max-w-312 grid-cols-2 gap-5 sm:grid-cols-4">
-                    {[
-                        'Technical competence',
-                        'Responsible cooling',
-                        'Safer practices',
-                        'Stronger connections',
-                    ].map((label) => (
-                        <p
-                            key={label}
-                            className="flex items-center gap-2 text-[10px] font-semibold tracking-[.07em] uppercase sm:justify-center sm:text-xs"
-                        >
-                            <Check
-                                size={14}
-                                className="text-brand-green-600 shrink-0"
-                            />
-                            {label}
-                        </p>
-                    ))}
-                </div>
-            </section>
-
-            <section
                 id="about"
-                className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14"
+                className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-24 lg:px-14"
             >
                 <HomeSectionBackground variant="dots" />
-                <div className="mx-auto max-w-312">
-                    <EditorialIntro
-                        label="01 / The Society"
-                        title={
-                            <>
-                                Essential systems.
-                                <br />
-                                <span className="text-brand-blue-700 italic">
-                                    Exceptional people.
-                                </span>
-                            </>
-                        }
-                    >
-                        <p>
-                            Cooling is essential infrastructure. The people
-                            behind it deserve the knowledge, connections, and
-                            support to do their best work.
-                        </p>
-                        <p className="mt-4">
-                            We bring Rwanda’s HVAC and refrigeration community
-                            together to build a more skilled, responsible, and
-                            connected industry.
-                        </p>
-                        <Link
-                            href={about()}
-                            className="border-ink/30 text-ink hover:border-brand-blue-800 hover:text-brand-blue-800 mt-6 inline-flex items-center gap-4 border-b pb-2 text-sm font-semibold transition-colors"
-                        >
-                            Get to know the Society <ArrowUpRight size={16} />
-                        </Link>
-                    </EditorialIntro>
+                <div className="mx-auto flex max-w-312 flex-col gap-14">
+                    <div className="reveal grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+                        <SectionHeading
+                            eyebrow="About the Society"
+                            title="Supporting a skilled and responsible industry"
+                        />
+                        <div>
+                            <p className="text-ink-muted text-base leading-7">
+                                Heating, ventilation, air conditioning, and
+                                refrigeration systems support hospitals, hotels,
+                                offices, homes, supermarkets, laboratories, food
+                                storage facilities, and industrial operations.
+                            </p>
+                            <p className="text-ink-muted mt-4 text-base leading-7">
+                                The Society helps professionals improve their
+                                technical skills, follow safety procedures,
+                                access industry information, and build
+                                connections with other professionals and
+                                institutions.
+                            </p>
+                            <Link
+                                href={about()}
+                                className="border-ink/30 text-ink hover:border-brand-blue-800 hover:text-brand-blue-800 mt-6 inline-flex items-center gap-3 border-b pb-2 text-sm font-semibold transition-colors"
+                            >
+                                Learn about us <ArrowUpRight size={16} />
+                            </Link>
+                        </div>
+                    </div>
                     <div
                         id="focus"
                         data-scroll-stagger
                         data-scroll-3d="cards"
-                        className="mt-16 grid gap-4 sm:grid-cols-2"
+                        className="grid gap-4 sm:grid-cols-2"
                     >
-                        {focusAreas.map(
-                            ({ icon: Icon, title, label, copy }) => (
-                                <article
-                                    key={label}
-                                    className="border-ink/10 shadow-card hover:shadow-card-hover flex gap-6 rounded-2xl border bg-white p-6 transition-shadow duration-300 sm:p-8"
-                                >
-                                    <span className="border-brand-blue-100 bg-brand-blue-50 text-brand-blue-800 grid size-12 shrink-0 place-items-center rounded-xl border">
-                                        <Icon size={22} strokeWidth={1.5} />
-                                    </span>
-                                    <div>
-                                        <p className="text-ink-muted text-[10px] font-semibold tracking-[.09em] uppercase">
-                                            {label}
-                                        </p>
-                                        <h3 className="mt-3 text-xl font-medium tracking-tight">
-                                            {title}
-                                        </h3>
-                                        <p className="text-ink-muted mt-3 max-w-md text-sm leading-6">
-                                            {copy}
-                                        </p>
-                                    </div>
-                                </article>
-                            ),
-                        )}
+                        {focusAreas.map(({ icon: Icon, title, copy }) => (
+                            <article
+                                key={title}
+                                className="border-ink/10 shadow-card hover:shadow-card-hover flex gap-6 rounded-2xl border bg-white p-6 transition-shadow duration-300 sm:p-8"
+                            >
+                                <span className="border-brand-blue-100 bg-brand-blue-50 text-brand-blue-800 grid size-12 shrink-0 place-items-center rounded-xl border">
+                                    <Icon size={22} strokeWidth={1.5} />
+                                </span>
+                                <div>
+                                    <h3 className="text-lg font-semibold tracking-tight">
+                                        {title}
+                                    </h3>
+                                    <p className="text-ink-muted mt-3 max-w-md text-sm leading-6">
+                                        {copy}
+                                    </p>
+                                </div>
+                            </article>
+                        ))}
                     </div>
                 </div>
             </section>
 
             <section
                 id="programs"
-                className="border-ink/10 bg-canvas-sunken relative isolate overflow-hidden border-y px-5 py-20 md:px-10 md:py-28 lg:px-14"
+                className="border-ink/10 bg-canvas-sunken relative isolate overflow-hidden border-y px-5 py-20 md:px-10 md:py-24 lg:px-14"
             >
                 <HomeSectionBackground variant="grid" />
-                <div className="mx-auto max-w-312">
+                <div className="mx-auto flex max-w-312 flex-col gap-12">
                     <div className="reveal flex flex-wrap items-end justify-between gap-7">
-                        <div>
-                            <p className="text-xs font-medium tracking-[.12em] uppercase">
-                                02 / Programs &amp; activities
-                            </p>
-                            <span
-                                aria-hidden="true"
-                                className="bg-brand-red-600 mt-4 block h-0.5 w-12 rounded-full"
-                            />
-                            <h2 className="mt-5 max-w-2xl font-serif text-[clamp(2.5rem,4.8vw,4.5rem)] leading-[1.04] tracking-[-.02em]">
-                                Knowledge into practice.
-                            </h2>
-                        </div>
+                        <SectionHeading
+                            eyebrow="Programs and activities"
+                            title="Activities built around the practical needs of the sector"
+                        />
                         <SlidingTextLink
                             href={programsRoute()}
                             variant="outline"
@@ -274,7 +232,7 @@ export default function Welcome(): React.JSX.Element {
                             Explore all programs
                         </SlidingTextLink>
                     </div>
-                    <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:gap-14">
+                    <div className="grid gap-8 lg:grid-cols-2 lg:gap-14">
                         <figure
                             data-scroll-3d="image"
                             className="bg-brand-navy-100 relative min-h-80 overflow-hidden rounded-2xl lg:min-h-110"
@@ -287,26 +245,22 @@ export default function Welcome(): React.JSX.Element {
                                 data-scroll-image
                                 className="absolute inset-0 size-full object-cover"
                             />
-                            <figcaption className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 rounded-lg bg-white px-5 py-4 text-xs">
-                                <span>Practical learning. Lasting impact.</span>
-                                <ArrowUpRight size={17} aria-hidden="true" />
+                            <figcaption className="absolute inset-x-4 bottom-4 rounded-lg bg-white px-5 py-4 text-xs">
+                                Members at a technical training session.
                             </figcaption>
                         </figure>
                         <div
                             data-scroll-stagger
                             className="border-ink/20 border-t"
                         >
-                            {programs.map(([title, copy, number]) => (
+                            {programs.map(([title, copy]) => (
                                 <Link
                                     href={programsRoute()}
                                     key={title}
                                     className="group border-ink/20 flex min-h-27 items-center gap-5 border-b py-6 transition-colors hover:bg-white/70 sm:px-4"
                                 >
-                                    <span className="text-ink-muted self-start pt-1 font-mono text-xs">
-                                        {number}
-                                    </span>
                                     <div className="flex-1">
-                                        <h3 className="text-lg font-medium tracking-tight sm:text-xl">
+                                        <h3 className="text-lg font-semibold tracking-tight">
                                             {title}
                                         </h3>
                                         <p className="text-ink-muted mt-2 text-sm">
@@ -325,7 +279,7 @@ export default function Welcome(): React.JSX.Element {
 
             <section
                 id="membership"
-                className="px-5 py-20 md:px-10 md:py-28 lg:px-14"
+                className="px-5 py-20 md:px-10 md:py-24 lg:px-14"
             >
                 <div
                     data-scroll-3d="panel"
@@ -333,34 +287,32 @@ export default function Welcome(): React.JSX.Element {
                 >
                     <HomeSectionBackground variant="airflow" dark />
                     <div className="flex flex-col items-start p-7 sm:p-12 lg:p-14">
-                        <p className="text-brand-green-300 text-xs tracking-[.12em] uppercase">
-                            03 / Membership
+                        <p className="text-brand-green-300 text-xs font-semibold tracking-[.12em] uppercase">
+                            Membership
                         </p>
-                        <h2 className="mt-7 max-w-lg font-serif text-[clamp(2.7rem,4.6vw,4.5rem)] leading-[1.04] tracking-[-.02em]">
-                            Your industry.
-                            <br />
-                            <span className="text-brand-green-300 italic">
-                                Your community.
-                            </span>
+                        <h2 className="mt-4 max-w-xl text-2xl font-semibold tracking-tight sm:text-3xl">
+                            Join Rwanda&rsquo;s HVAC and refrigeration
+                            professional network
                         </h2>
-                        <p className="mt-6 max-w-md text-sm leading-7 text-white/80">
-                            Find the training, resources, and professional
-                            connections to take your work further. There’s a
-                            place for you here.
+                        <p className="mt-5 max-w-md text-sm leading-7 text-white/80">
+                            Membership provides access to training, technical
+                            resources, industry events, professional
+                            connections, and participation in Society
+                            activities.
                         </p>
                         <SlidingTextLink
                             href={membership()}
                             variant="light"
                             className="mt-9"
                         >
-                            Find your membership
+                            View membership options
                         </SlidingTextLink>
                     </div>
                     <div className="bg-brand-blue-900/60 border-t border-white/15 p-7 sm:p-12 lg:border-t-0 lg:border-l lg:p-14">
-                        <p className="text-xs tracking-[.12em] text-white/65 uppercase">
-                            A shared commitment to better
+                        <p className="text-xs font-semibold tracking-[.12em] text-white/65 uppercase">
+                            Membership categories
                         </p>
-                        <div className="mt-7">
+                        <div className="mt-6">
                             {memberships.map(([title, copy]) => (
                                 <Link
                                     href={membership()}
@@ -368,7 +320,7 @@ export default function Welcome(): React.JSX.Element {
                                     className="group flex items-center justify-between gap-5 border-b border-white/15 py-5 first:pt-0"
                                 >
                                     <div>
-                                        <h3 className="text-lg font-medium">
+                                        <h3 className="font-semibold">
                                             {title}
                                         </h3>
                                         <p className="mt-1 text-xs leading-5 text-white/70">
@@ -388,27 +340,26 @@ export default function Welcome(): React.JSX.Element {
 
             <section
                 id="insights"
-                className="relative isolate overflow-hidden px-5 pb-20 md:px-10 md:pb-28 lg:px-14"
+                className="relative isolate overflow-hidden px-5 pb-20 md:px-10 md:pb-24 lg:px-14"
             >
                 <HomeSectionBackground variant="dots" />
                 <div className="mx-auto max-w-312">
-                    <div className="reveal border-ink/20 flex flex-wrap items-end justify-between gap-7 border-t pt-7">
-                        <div>
-                            <h2 className="mt-5 font-serif text-[clamp(2.5rem,4.8vw,4.5rem)] leading-[1.04] tracking-[-.02em]">
-                                Ideas in circulation.
-                            </h2>
-                        </div>
+                    <div className="reveal border-ink/20 flex flex-wrap items-end justify-between gap-7 border-t pt-10">
+                        <SectionHeading
+                            eyebrow="News and events"
+                            title="Latest news and events"
+                        />
                         <Link
                             href={newsEvents()}
-                            className="hover:text-brand-blue-800 inline-flex items-center gap-4 pb-1 text-sm font-semibold transition-colors"
+                            className="hover:text-brand-blue-800 inline-flex items-center gap-3 pb-1 text-sm font-semibold transition-colors"
                         >
-                            All news &amp; events <ArrowUpRight size={17} />
+                            View all news and events <ArrowUpRight size={17} />
                         </Link>
                     </div>
                     <div
                         data-scroll-stagger
                         data-scroll-3d="cards"
-                        className="mt-12 grid gap-x-5 gap-y-12 md:grid-cols-3 lg:gap-x-8"
+                        className="mt-10 grid gap-x-5 gap-y-12 md:grid-cols-3 lg:gap-x-8"
                     >
                         {news.map(([category, title, image]) => (
                             <article key={title} className="group">
@@ -426,19 +377,19 @@ export default function Welcome(): React.JSX.Element {
                                             className="size-full object-cover transition duration-500 group-hover:scale-105"
                                         />
                                     </div>
-                                    <div className="mt-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-[10px] font-medium tracking-[.08em] whitespace-nowrap uppercase">
-                                        <span className="border-ink/20 rounded-full border px-3 py-1.5">
+                                    <div className="mt-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-xs whitespace-nowrap">
+                                        <span className="border-ink/20 rounded-full border px-3 py-1.5 font-medium">
                                             {category}
                                         </span>
                                         <span className="text-ink-muted">
                                             Coming soon
                                         </span>
                                     </div>
-                                    <h3 className="mt-4 mb-6 text-xl leading-snug font-medium tracking-[-.02em]">
+                                    <h3 className="mt-4 mb-6 text-lg leading-snug font-semibold tracking-tight">
                                         {title}
                                     </h3>
                                     <span className="border-ink/15 group-hover:text-brand-blue-800 mt-auto flex items-center justify-between border-t pt-4 text-xs font-medium transition-colors">
-                                        View updates <ArrowUpRight size={16} />
+                                        Read more <ArrowUpRight size={16} />
                                     </span>
                                 </Link>
                             </article>
@@ -453,28 +404,20 @@ export default function Welcome(): React.JSX.Element {
             >
                 <HomeSectionBackground variant="airflow" />
                 <div className="reveal mx-auto flex max-w-312 flex-col items-start justify-between gap-9 lg:flex-row lg:items-center">
-                    <div>
-                        <p className="text-xs font-medium tracking-[.12em] uppercase">
-                            Let’s move the industry forward
-                        </p>
-                        <h2 className="mt-5 max-w-3xl font-serif text-[clamp(2.5rem,4.8vw,4.75rem)] leading-[1.04] tracking-[-.02em]">
-                            Better systems start
-                            <br />
-                            with{' '}
-                            <span className="text-brand-blue-700 italic">
-                                better connections.
-                            </span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Get involved"
+                        title="Help strengthen Rwanda’s HVAC and refrigeration sector"
+                        lead="Join the Society, attend a training session, participate in an event, or support one of our programs."
+                    />
                     <div className="flex shrink-0 flex-col items-start gap-5">
                         <SlidingTextLink href={membership()}>
                             Join the Society
                         </SlidingTextLink>
                         <Link
                             href={contact()}
-                            className="hover:text-brand-blue-800 inline-flex items-center gap-4 text-sm transition-colors"
+                            className="hover:text-brand-blue-800 inline-flex items-center gap-3 text-sm transition-colors"
                         >
-                            Have a question? Let’s talk <ArrowRight size={16} />
+                            Contact us <ArrowRight size={16} />
                         </Link>
                     </div>
                 </div>
