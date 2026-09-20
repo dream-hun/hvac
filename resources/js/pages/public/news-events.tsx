@@ -1,9 +1,136 @@
+import HomeSectionBackground from '@/components/home-section-background';
 import PublicPageHero from '@/components/public-page-hero';
 import PublicSiteLayout from '@/layouts/public-site-layout';
 import { contact } from '@/routes';
 
-const stories = [['Training opportunity', 'Practical refrigeration training for the next generation of technicians', 'The Society will share details of upcoming learning opportunities, registration requirements, and participation information here.'], ['Industry update', 'Building a stronger, safer cooling sector together', 'Read Society announcements, partnership updates, and the conversations shaping professional practice.'], ['Environmental information', 'Responsible refrigerant management in Rwanda', 'Updates on efficient cooling, prevention of refrigerant leakage, recovery, and environmentally responsible work.']];
+const storyImages = [
+    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=85',
+];
+
+const stories = [
+    [
+        'Training opportunity',
+        'Practical refrigeration training for the next generation of technicians',
+        'The Society will share details of upcoming learning opportunities, registration requirements, and participation information here.',
+    ],
+    [
+        'Industry update',
+        'Building a stronger, safer cooling sector together',
+        'Read Society announcements, partnership updates, and the conversations shaping professional practice.',
+    ],
+    [
+        'Environmental information',
+        'Responsible refrigerant management in Rwanda',
+        'Updates on efficient cooling, prevention of refrigerant leakage, recovery, and environmentally responsible work.',
+    ],
+];
 
 export default function NewsEvents(): React.JSX.Element {
-    return <PublicSiteLayout title="News & events"><PublicPageHero eyebrow="News & events" title={<>The sector is<br /><i className="font-normal">in conversation.</i></>} copy="Read Society announcements, discover training opportunities, and register for upcoming industry events." action={{ label: 'Ask about an event', route: contact() }} image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=85" /><main><section className="px-5 py-24 md:px-10 md:py-32 lg:px-14"><div className="mx-auto max-w-[1328px]"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><p className="text-[10px] font-bold tracking-[.18em] text-dark-emerald-700 uppercase">Latest updates</p><h2 className="mt-5 font-serif text-5xl leading-[.9] tracking-[-.05em] md:text-6xl">Ideas in circulation.</h2></div><p className="max-w-sm text-sm leading-6 text-dark-emerald-700">News stories, training announcements, and industry updates will appear here as they are published.</p></div><div className="mt-14 grid gap-px bg-dark-emerald-900/20 md:grid-cols-3">{stories.map(([type, title, copy], index) => <article key={title} className="min-h-80 bg-mint-cream-50 p-7"><span className="font-serif text-2xl text-cobalt-blue-700">0{index + 1}</span><p className="mt-12 text-[10px] font-bold tracking-[.14em] text-dark-emerald-700 uppercase">{type}</p><h3 className="mt-4 font-serif text-3xl leading-[.96] tracking-[-.04em]">{title}</h3><p className="mt-5 text-sm leading-6 text-dark-emerald-700">{copy}</p></article>)}</div></div></section><section className="bg-dark-emerald-900 px-5 py-24 text-white md:px-10 md:py-32 lg:px-14"><div className="mx-auto grid max-w-[1328px] gap-12 lg:grid-cols-2"><div><p className="text-[10px] font-bold tracking-[.18em] text-mint-cream-200 uppercase">Upcoming events</p><h2 className="mt-6 font-serif text-5xl leading-[.9] tracking-[-.05em] md:text-6xl">Save the space for what’s next.</h2></div><div className="border-t border-white/20">{['Technical workshops', 'Training courses', 'Member meetings', 'Industry exhibitions'].map((event, index) => <div key={event} className="flex items-center justify-between border-b border-white/20 py-6"><span className="text-sm font-semibold">{event}</span><span className="font-serif text-2xl text-mint-cream-200">0{index + 1}</span></div>)}</div></div></section></main></PublicSiteLayout>;
+    return (
+        <PublicSiteLayout title="News & events">
+            <PublicPageHero
+                eyebrow="News & events"
+                title={
+                    <>
+                        The sector is
+                        <br />
+                        <i className="font-normal text-[#d5e6b9]">
+                            in conversation.
+                        </i>
+                    </>
+                }
+                copy="Read Society announcements, discover training opportunities, and register for upcoming industry events."
+                action={{ label: 'Ask about an event', route: contact() }}
+                image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=85"
+            />
+            <main>
+                <section className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14">
+                    <HomeSectionBackground variant="data-pixel" />
+                    <div className="mx-auto max-w-312">
+                        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+                            <div>
+                                <p className="text-xs font-medium tracking-[.12em] text-[#657269] uppercase">
+                                    Latest updates
+                                </p>
+                                <h2 className="mt-5 font-serif text-5xl leading-[1.04] tracking-[-.05em] md:text-6xl">
+                                    Ideas in circulation.
+                                </h2>
+                            </div>
+                            <p className="max-w-sm text-sm leading-6 text-[#657269]">
+                                News stories, training announcements, and
+                                industry updates will appear here as they are
+                                published.
+                            </p>
+                        </div>
+                        <div
+                            data-scroll-3d="cards"
+                            className="mt-12 grid gap-x-6 gap-y-12 md:grid-cols-3"
+                        >
+                            {stories.map(([type, title, copy], index) => (
+                                <article key={title} className="group">
+                                    <div className="aspect-[1.45] overflow-hidden rounded-xl bg-[#e3e6dc]">
+                                        <img
+                                            data-scroll-image
+                                            src={storyImages[index]}
+                                            alt=""
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="size-full object-cover saturate-75 transition duration-500 group-hover:scale-105"
+                                        />
+                                    </div>
+                                    <p className="mt-5 text-[10px] tracking-[.08em] text-[#657269] uppercase">
+                                        Coming soon
+                                    </p>
+                                    <p className="mt-3 inline-flex rounded-full border border-[#193e32]/20 px-3 py-1.5 text-[10px] font-medium tracking-[.08em] uppercase">
+                                        {type}
+                                    </p>
+                                    <h3 className="mt-4 text-xl leading-snug font-medium tracking-[-.03em]">
+                                        {title}
+                                    </h3>
+                                    <p className="mt-5 text-sm leading-6 text-[#657269]">
+                                        {copy}
+                                    </p>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                <section className="relative isolate overflow-hidden bg-[#122c23] px-5 py-24 text-white md:px-10 md:py-32 lg:px-14">
+                    <HomeSectionBackground variant="signal-particles" dark />
+                    <div className="mx-auto grid max-w-312 gap-12 lg:grid-cols-2">
+                        <div>
+                            <p className="text-xs font-medium tracking-[.12em] text-[#d5e6b9] uppercase">
+                                Upcoming events
+                            </p>
+                            <h2 className="mt-6 font-serif text-5xl leading-[1.04] tracking-[-.05em] md:text-6xl">
+                                Save the space for what’s next.
+                            </h2>
+                        </div>
+                        <div className="border-t border-white/20">
+                            {[
+                                'Technical workshops',
+                                'Training courses',
+                                'Member meetings',
+                                'Industry exhibitions',
+                            ].map((event, index) => (
+                                <div
+                                    key={event}
+                                    className="flex items-center justify-between border-b border-white/20 py-6"
+                                >
+                                    <span className="text-sm font-semibold">
+                                        {event}
+                                    </span>
+                                    <span className="font-serif text-2xl text-[#d5e6b9]">
+                                        0{index + 1}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </PublicSiteLayout>
+    );
 }

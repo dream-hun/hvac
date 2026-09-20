@@ -1,10 +1,160 @@
+import HomeSectionBackground from '@/components/home-section-background';
 import PublicPageHero from '@/components/public-page-hero';
+import { SlidingTextLink } from '@/components/threeui-public';
 import PublicSiteLayout from '@/layouts/public-site-layout';
 import { contact } from '@/routes';
 
-const categories = [['Professional', 'For technicians, engineers, consultants, installers, supervisors, and maintenance professionals.'], ['Corporate', 'For HVAC companies, refrigeration businesses, contractors, equipment distributors, and service providers.'], ['Student', 'For students enrolled in HVAC, refrigeration, mechanical engineering, electrical engineering, or related technical programs.'], ['Institutional', 'For universities, technical schools, vocational training centres, public institutions, and professional organizations.'], ['Partner', 'For organizations supporting technical education, environmental protection, employment, or industry development.']];
-const benefits = ['Access to technical training and workshops', 'Reduced fees for selected Society events', 'Access to technical guides and resources', 'Professional networking opportunities', 'Participation in committees and Society activities', 'Information about jobs, tenders, training, and scholarships', "Listing in the member directory, with the member's consent", 'Invitations to conferences and industry meetings', 'Opportunities to contribute to industry discussions'];
+const categories = [
+    [
+        'Professional',
+        'For technicians, engineers, consultants, installers, supervisors, and maintenance professionals.',
+    ],
+    [
+        'Corporate',
+        'For HVAC companies, refrigeration businesses, contractors, equipment distributors, and service providers.',
+    ],
+    [
+        'Student',
+        'For students enrolled in HVAC, refrigeration, mechanical engineering, electrical engineering, or related technical programs.',
+    ],
+    [
+        'Institutional',
+        'For universities, technical schools, vocational training centres, public institutions, and professional organizations.',
+    ],
+    [
+        'Partner',
+        'For organizations supporting technical education, environmental protection, employment, or industry development.',
+    ],
+];
+const benefits = [
+    'Access to technical training and workshops',
+    'Reduced fees for selected Society events',
+    'Access to technical guides and resources',
+    'Professional networking opportunities',
+    'Participation in committees and Society activities',
+    'Information about jobs, tenders, training, and scholarships',
+    "Listing in the member directory, with the member's consent",
+    'Invitations to conferences and industry meetings',
+    'Opportunities to contribute to industry discussions',
+];
 
 export default function Membership(): React.JSX.Element {
-    return <PublicSiteLayout title="Membership"><PublicPageHero eyebrow="Membership" title={<>Join the network<br />moving <i className="font-normal">forward.</i></>} copy="Join a professional community committed to improving technical competence, workplace safety, energy efficiency, and responsible refrigeration practices in Rwanda." action={{ label: 'Start your application', route: contact() }} image="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1400&q=85" /><main><section className="px-5 py-24 md:px-10 md:py-32 lg:px-14"><div className="mx-auto max-w-[1328px]"><div className="flex flex-col justify-between gap-7 md:flex-row md:items-end"><h2 className="font-serif text-5xl leading-[.9] tracking-[-.05em] md:text-6xl">Choose your place.</h2><p className="max-w-sm text-sm leading-6 text-dark-emerald-700">Membership is designed to reflect the many ways professionals and institutions contribute to the sector.</p></div><div className="mt-14 grid border-t border-dark-emerald-900/20 md:grid-cols-2">{categories.map(([title, copy], index) => <article key={title} className="border-b border-dark-emerald-900/20 py-9 md:px-8 md:[&:nth-child(odd)]:border-r"><span className="font-serif text-2xl text-cobalt-blue-700">0{index + 1}</span><h3 className="mt-14 text-2xl font-semibold tracking-[-.04em]">{title} membership</h3><p className="mt-4 max-w-md text-sm leading-6 text-dark-emerald-700">{copy}</p></article>)}</div></div></section><section className="bg-mint-cream-200 px-5 py-24 md:px-10 md:py-32 lg:px-14"><div className="mx-auto grid max-w-[1328px] gap-14 lg:grid-cols-2"><div><p className="text-[10px] font-bold tracking-[.18em] uppercase">What membership opens up</p><h2 className="mt-6 font-serif text-5xl leading-[.9] tracking-[-.05em] md:text-6xl">Useful access. Meaningful connection.</h2></div><ul className="border-t border-dark-emerald-900/30">{benefits.map((benefit, index) => <li key={benefit} className="flex gap-5 border-b border-dark-emerald-900/30 py-5"><span className="font-serif text-xl">0{index + 1}</span><span className="pt-1 text-sm font-semibold">{benefit}</span></li>)}</ul></div></section><section className="px-5 py-24 md:px-10 md:py-32 lg:px-14"><div className="mx-auto max-w-[1328px] border-t border-dark-emerald-900/20 pt-8"><p className="text-[10px] font-bold tracking-[.18em] text-dark-emerald-700 uppercase">Application process</p><div className="mt-10 grid gap-6 md:grid-cols-4">{['Complete the membership form', 'Upload required documents', 'Submit for Society review', 'Receive confirmation after approval'].map((step, index) => <div key={step}><span className="font-serif text-4xl text-cobalt-blue-700">0{index + 1}</span><p className="mt-5 max-w-44 text-sm leading-6">{step}</p></div>)}</div></div></section></main></PublicSiteLayout>;
+    return (
+        <PublicSiteLayout title="Membership">
+            <PublicPageHero
+                eyebrow="Membership"
+                title={
+                    <>
+                        Join the network
+                        <br />
+                        moving{' '}
+                        <i className="font-normal text-[#d5e6b9]">forward.</i>
+                    </>
+                }
+                copy="Join a professional community committed to improving technical competence, workplace safety, energy efficiency, and responsible refrigeration practices in Rwanda."
+                action={{ label: 'Start your application', route: contact() }}
+                image="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1400&q=85"
+            />
+            <main>
+                <section className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14">
+                    <HomeSectionBackground variant="signal-particles" />
+                    <div className="mx-auto max-w-312">
+                        <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
+                            <h2 className="font-serif text-5xl leading-[1.04] tracking-[-.05em] md:text-6xl">
+                                Choose your place.
+                            </h2>
+                            <p className="max-w-sm text-sm leading-6 text-[#657269]">
+                                Membership is designed to reflect the many ways
+                                professionals and institutions contribute to the
+                                sector.
+                            </p>
+                        </div>
+                        <div
+                            data-scroll-3d="cards"
+                            className="mt-12 grid gap-5 md:grid-cols-2"
+                        >
+                            {categories.map(([title, copy], index) => (
+                                <article
+                                    key={title}
+                                    className="rounded-2xl border border-[#193e32]/12 bg-[#fffef9] p-6 shadow-[0_3px_0_#193e3206] md:p-8"
+                                >
+                                    <span className="font-serif text-2xl text-[#648b56]">
+                                        0{index + 1}
+                                    </span>
+                                    <h3 className="mt-8 text-2xl font-semibold tracking-[-.04em]">
+                                        {title} membership
+                                    </h3>
+                                    <p className="mt-4 max-w-md text-sm leading-6 text-[#657269]">
+                                        {copy}
+                                    </p>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                <section className="relative isolate overflow-hidden bg-[#e0e8d2] px-5 py-20 md:px-10 md:py-28 lg:px-14">
+                    <HomeSectionBackground variant="ribbon-field" />
+                    <div className="mx-auto grid max-w-312 gap-14 lg:grid-cols-2">
+                        <div>
+                            <p className="text-xs font-medium tracking-[.12em] uppercase">
+                                What membership opens up
+                            </p>
+                            <h2 className="mt-6 font-serif text-5xl leading-[1.04] tracking-[-.05em] md:text-6xl">
+                                Useful access. Meaningful connection.
+                            </h2>
+                        </div>
+                        <ul className="border-t border-[#193e32]/30">
+                            {benefits.map((benefit, index) => (
+                                <li
+                                    key={benefit}
+                                    className="flex gap-5 border-b border-[#193e32]/30 py-5"
+                                >
+                                    <span className="font-serif text-xl">
+                                        0{index + 1}
+                                    </span>
+                                    <span className="pt-1 text-sm font-semibold">
+                                        {benefit}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
+                <section className="relative isolate overflow-hidden px-5 py-20 md:px-10 md:py-28 lg:px-14">
+                    <HomeSectionBackground variant="override-grid" />
+                    <div className="mx-auto max-w-312 border-t border-[#193e32]/20 pt-8">
+                        <p className="text-xs font-medium tracking-[.12em] text-[#657269] uppercase">
+                            Application process
+                        </p>
+                        <div
+                            data-scroll-3d="cards"
+                            className="mt-10 grid gap-6 md:grid-cols-4"
+                        >
+                            {[
+                                'Complete the membership form',
+                                'Upload required documents',
+                                'Submit for Society review',
+                                'Receive confirmation after approval',
+                            ].map((step, index) => (
+                                <div
+                                    key={step}
+                                    className="rounded-2xl border border-[#193e32]/12 bg-[#eeefe6] p-6"
+                                >
+                                    <span className="font-serif text-4xl text-[#648b56]">
+                                        0{index + 1}
+                                    </span>
+                                    <p className="mt-5 max-w-44 text-sm leading-6">
+                                        {step}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                        <SlidingTextLink href={contact()} className="mt-10">
+                            Enquire about membership
+                        </SlidingTextLink>
+                    </div>
+                </section>
+            </main>
+        </PublicSiteLayout>
+    );
 }

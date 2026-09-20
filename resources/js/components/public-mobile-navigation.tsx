@@ -39,7 +39,7 @@ export default function PublicMobileNavigation({
             <SheetTrigger asChild>
                 <button
                     type="button"
-                    className="grid size-11 shrink-0 place-items-center border border-current/40 lg:hidden"
+                    className="grid size-11 shrink-0 place-items-center rounded-full border border-current/40 lg:hidden"
                     aria-label="Open navigation"
                 >
                     <Menu size={19} />
@@ -47,9 +47,9 @@ export default function PublicMobileNavigation({
             </SheetTrigger>
             <SheetContent
                 data-lenis-prevent
-                className="public-menu bg-dark-emerald-900 text-mint-cream-50 w-full overflow-y-auto border-white/15 px-6 pt-8 pb-10 motion-reduce:animate-none motion-reduce:transition-none sm:max-w-lg [&>button]:top-5 [&>button]:right-5 [&>button]:grid [&>button]:size-11 [&>button]:place-items-center"
+                className="public-menu w-full overflow-y-auto border-white/15 bg-[#122c23] px-6 pt-8 pb-10 text-[#f7f7f0] motion-reduce:animate-none motion-reduce:transition-none sm:max-w-lg [&>button]:top-5 [&>button]:right-5 [&>button]:grid [&>button]:size-11 [&>button]:place-items-center"
             >
-                <SheetTitle className="text-mint-cream-200 pr-14 text-xs tracking-[.16em] uppercase">
+                <SheetTitle className="pr-14 text-xs tracking-[.16em] text-[#d5e6b9] uppercase">
                     Explore the Society
                 </SheetTitle>
                 <nav
@@ -63,11 +63,11 @@ export default function PublicMobileNavigation({
                             onClick={() => onOpenChange(false)}
                             className="group flex items-center gap-4 border-b border-white/20 py-5 font-serif text-[clamp(1.8rem,7vw,3rem)] tracking-tight"
                         >
-                            <span className="text-cobalt-blue-200 font-sans text-xs tracking-normal">
+                            <span className="font-sans text-xs tracking-normal text-[#c9dda8]">
                                 0{index + 1}
                             </span>
                             {label}
-                            <ArrowUpRight className="text-cobalt-blue-200 ml-auto size-5" />
+                            <ArrowUpRight className="ml-auto size-5 text-[#c9dda8]" />
                         </Link>
                     ))}
                 </nav>
